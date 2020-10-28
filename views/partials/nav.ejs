@@ -1,0 +1,23 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a
+      class="navbar-item"
+      href="/cookbooks"
+      onMouseOver="this.style.color='#D6E854 '"
+      onMouseOut="this.style.color='#008000'"
+    >
+      <i class="fas fa-lemon fa-2x"></i>
+    </a>
+  </div>
+  <div class="“nav-wrapper”">
+    <ul class="“right”">
+      <li>
+        <% if (user) { %>
+        <a href="/logout">Log Out</a>
+        <% } else { %>
+        <a href="/auth/google">Login with Google</a>
+        <% } %>
+      </li>
+    </ul>
+  </div>
+</nav>
