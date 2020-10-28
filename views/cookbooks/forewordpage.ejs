@@ -1,22 +1,25 @@
-<%- include('../partials/header') %>
+<%- include('../partials/header') %> <%- include('../partials/nav') %>
 
 <nav>
-    <a href="/cookbooks/<%= cookbook._id %>">Go Back to Your Book</a><span class="space"></span>
-    
+  <a href="/cookbooks/<%= cookbook._id %>">Go Back to Your Book</a
+  ><span class="space"></span>
 </nav>
- <br><br>
+<br /><br />
 
- <h1>Book Details</h1><br><br>
-        <p>Cookbook Title: <%= cookbook.title %></p>
-        <p>Cookbook Subtitle: <%= cookbook.subtitle %></p>
-<br><br>
+<h1>Book Details</h1>
+<br /><br />
+<p>Cookbook Title: <%= cookbook.title %></p>
+<p>Cookbook Subtitle: <%= cookbook.subtitle %></p>
+<br /><br />
 <div class="foreword-page">
-<h1>Foreword</h1><br><br>
-<p> <%= cookbook.foreword %></p>
+  <h1>Foreword</h1>
+  <br /><br />
+  <p><%= cookbook.foreword %></p>
 </div>
-<br><br>
+<br /><br />
 
-
-<a href="/cookbooks/<%= cookbook._id %>/forewordpage/update">Update Foreword Page</a><span class="space"></span>
-
-<%- include('../partials/footer') %>
+<% if (user) { %>
+<a href="/cookbooks/<%= cookbook._id %>/forewordpage/update"
+  >Update Foreword Page</a
+><span class="space"></span>
+<% } %> <%- include('../partials/footer') %>

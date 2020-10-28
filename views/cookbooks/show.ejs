@@ -1,12 +1,20 @@
-<%- include('../partials/header') %>
-
+<%- include('../partials/header') %> <%- include('../partials/nav') %>
 <nav>
   <!-- <a href="/">Home</a> -->
-  <a href="/cookbooks/new">New Cook Book</a><span class="space"></span>
+
   <a href="/cookbooks">All Cook Books</a><span class="space"></span>
-  <a href="/cookbooks/<%= cookbook._id %>/update">Update Book</a>
+  <a href="/cookbooks/<%= cookbook._id %>/recipes">All Recipes</a
+  ><span class="space"></span> <br /><br />
+
+  <% if (user) { %>
+  <a href="/cookbooks/new">New Cook Book</a><span class="space"></span>
+  <a href="/cookbooks/<%= cookbook._id %>/update">Update Book</a
+  ><span class="space"></span>
+  <a href="/cookbooks/<%= cookbook._id %>/delete">Delete This Book</a
+  ><span class="space"></span>
   <span class="space"></span>
 </nav>
+<%}%>
 <br /><br />
 
 <h1>Book Details</h1>
@@ -19,8 +27,8 @@
 <span class="space"></span>
 <a href="/cookbooks/<%= cookbook._id %>/forewordpage">Foreword Page</a
 ><span class="space"></span>
-<a href="/cookbooks/<%= cookbook._id %>/recipes">Recipes</a
-><span class="space"></span> <a href="#">Book Preview</a
+<a href="/cookbooks/<%= cookbook._id %>/recipes/showAll">Recipes</a>
+<span class="space"></span> <a href="#">Book Preview</a
 ><span class="space"></span> <a href="#">Print Book</a
 ><span class="space"></span>
 

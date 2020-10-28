@@ -1,49 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- <title><%= title %></title> -->
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <!-- Google Icon Fonts used by Materialize -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!-- Materialize CSS Framework -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link rel="stylesheet" href="stylesheets/style.css" />
-    <!-- JavaScript for Materialize -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <!-- pdfmake files: -->
-    <script src="https://cdn.jsdelivr.net/npm/pdfmake@latest/build/pdfmake.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pdfmake@latest/build/vfs_fonts.min.js"></script>
-    <!-- html-to-pdfmake file: -->
-    <script src="https://cdn.jsdelivr.net/npm/html-to-pdfmake/docs/browser.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <SCRIPT language="JavaScript">
-    function anchor_test() {
-      window.alert("This is an anchor test.")
-    }
-  </SCRIPT> -->
-  </head>
-  <body>
-    <nav>
-      <div class="“nav-wrapper”">
-        <!-- Add login UI here -->
-        <ul class="“right”">
-          <li>
-            <% if (user) { %>
-            <a href="/logout">Log Out</a>
-            <% } else { %>
-            <a href="/auth/google">Login with Google</a>
-            <% } %>
-          </li>
-        </ul>
-      </div>
-    </nav>
+
+    <%- include('../partials/header') %>
+    <%- include('../partials/nav') %>
+    
 
     <h1><%= title %></h1>
     <% if (user) { %>
@@ -53,8 +12,8 @@
     <p>Cookbook SubTitle: <%= c.subtitle %></p>
     <p>click <a href="/cookbooks/<%= c._id %>">Here</a> for details</p>
     <!-- <p>click <a id="pre" href="javascript:showPdf()">Here</a> for preview</p>   -->
-    <!-- <a href="javascript:anchor_test()">AnchorTest</a> -->
-    <% });%>
+    <!-- <a href="javascript:anchor_test()">AnchorTest</a>-->
+    <% });%> 
     <!-- <script src="./javascripts/coverpage.js"></script> -->
     <!-- <script src="./javascripts/coverforewordrecipes.js"></script> -->
   </body>

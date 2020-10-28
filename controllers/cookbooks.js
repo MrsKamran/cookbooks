@@ -6,6 +6,7 @@ module.exports = {
   show,
   new: newCookbook,
   create,
+  delete: deleteOne,
   showForewordPage,
   updateForewordPageinDB,
   updateForewordPage,
@@ -22,7 +23,7 @@ function index(req, res) {
       title: "All Books",
       cookbooks,
       user: req.user,
-      name: req.query.name,
+      // name: req.query.name,
     });
   });
 }
@@ -32,6 +33,7 @@ function show(req, res) {
     res.render("cookbooks/show", {
       title: "Book Details",
       cookbook,
+      user: req.user,
     });
   });
 }
@@ -45,14 +47,22 @@ function newCookbook(req, res) {
 }
 
 function create(req, res) {
-  //   for (let key in req.body) {
-  //     if (req.body[key] === '') delete req.body[key];
-  //   }
-
+  console.log(req.body);
+  console.log("create book");
   const cookbook = new Cookbook(req.body);
   cookbook.save(function (err) {
-    if (err) return res.redirect("/cookbooks/new");
+    if (err) {
+      // console.log(err);
+      return res.redirect("/cookbooks/new");
+    }
     res.redirect(`/cookbooks/${cookbook._id}`);
+  });
+}
+
+function deleteOne(req, res) {
+  Cookbook.findByIdAndDelete(req.params.id, function (err) {
+    if (err) console.log(err);
+    res.redirect(`/cookbooks`);
   });
 }
 
@@ -61,6 +71,7 @@ function showForewordPage(req, res) {
     res.render("cookbooks/forewordpage", {
       title: "Foreword",
       cookbook,
+      user: req.user,
     });
   });
 }
@@ -90,6 +101,7 @@ function showCoverPage(req, res) {
     res.render("cookbooks/coverpage", {
       title: "Cover Page",
       cookbook,
+      user: req.user,
     });
   });
 }

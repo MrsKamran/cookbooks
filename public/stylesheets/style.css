@@ -4,24 +4,27 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
 .space {
   padding: 5px;
 }
 
-.description-box{
+.description-box {
   height: 150px;
   width: 400px;
 }
 
-.cover-image{
+.cover-image {
+  /* position: absolute;
+  top: 200px;
+  left: 0px; */
   width: 700px;
-  height: 1000px
+  height: auto;
 }
 
-.cover-page{
+.cover-page {
   position: relative;
   text-align: center;
   border: 2px solid black;
@@ -29,26 +32,25 @@ a {
   height: 1000px;
 }
 
-.cover-page-text{
-  position: absolute;
-  top: 70px;
-  left: 100px;
+.cover-page-text {
+  /* position: absolute;
+  top: 5px;
+  left: 70px; */
   font-size: 70px;
 }
 
-.foreword-page{
-
+.foreword-page {
   text-align: left;
   border: 2px solid black;
   width: 700px;
   height: 1000px;
 }
 
-#pdfV{
-  width:100%; 
-  height: 500px
+#pdfV {
+  width: 100%;
+  height: 500px;
 }
-.recipe-image{
+.recipe-image {
   width: 500px;
   height: auto;
 }

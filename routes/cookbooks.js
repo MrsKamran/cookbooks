@@ -7,6 +7,7 @@ router.get("/new", booksCtrl.new);
 
 router.get("/:id", booksCtrl.show);
 router.post("/", booksCtrl.create);
+router.get("/:id/delete", booksCtrl.delete);
 
 router.post("/:id/update", booksCtrl.updateBookinDB); //updates book page
 router.get("/:id/update", booksCtrl.updateBook); //display update book form

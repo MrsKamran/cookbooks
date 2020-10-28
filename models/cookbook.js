@@ -6,22 +6,27 @@ const cookbookSchema = new Schema(
   {
     title: {
       type: String,
-      required: true,
+      // required: true,
     },
     subtitle: {
       type: String,
+      // required: true,
     },
     authors: {
       type: String,
+      // required: true,
     },
     coverImageURL: {
       type: mongoose.SchemaTypes.Url,
+      // required: true,
     },
     foreword: {
       type: String,
+      // required: true,
     },
     forewordAuthor: {
       type: String,
+      // required: true,
     },
   },
   {
