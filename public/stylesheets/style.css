@@ -1,0 +1,54 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.space {
+  padding: 5px;
+}
+
+.description-box{
+  height: 150px;
+  width: 400px;
+}
+
+.cover-image{
+  width: 700px;
+  height: 1000px
+}
+
+.cover-page{
+  position: relative;
+  text-align: center;
+  border: 2px solid black;
+  width: 700px;
+  height: 1000px;
+}
+
+.cover-page-text{
+  position: absolute;
+  top: 70px;
+  left: 100px;
+  font-size: 70px;
+}
+
+.foreword-page{
+
+  text-align: left;
+  border: 2px solid black;
+  width: 700px;
+  height: 1000px;
+}
+
+#pdfV{
+  width:100%; 
+  height: 500px
+}
+.recipe-image{
+  width: 500px;
+  height: auto;
+}

@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<h2>Update Foreword Page</h2><br><br>
+<form id="add-foreword-page" method="POST"
+  action="/cookbooks/<%=cookbook._id%>/forewordpage/update" autocomplete="off">
+  </label><br><br><br>
+  <label>Description: <br><br>
+    <textarea name="foreword" class="description-box"></textarea>
+  </label><br><br>
+  <input type="submit" value="Update Foreword Page in <%=cookbook.title%>">
+</form>
+
+<%- include('../partials/footer') %>

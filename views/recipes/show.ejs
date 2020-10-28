@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+
+<nav>
+  <a href="/cookbooks/<%= cookbookId %>">Go Back to Your Book</a
+  ><span class="space"></span>
+  <a href="/cookbooks/<%= cookbookId %>/recipes">Go Back to All Recipes</a
+  ><span class="space"></span>
+</nav>
+<br /><br />
+
+<a href="/cookbooks/<%= cookbookId %>/recipes/<%=recipe._id%>/delete"
+  >Delete This recipe</a
+><span class="space"></span>
+<a href="/cookbooks/<%= cookbookId %>/recipes/<%=recipe._id%>/update"
+  >Update This recipe</a
+><span class="space"></span>
+
+<br /><br />
+<h1>Recipe Details</h1>
+<br />
+<p>Cookbook Title: <%= cookbookTitle %></p>
+<br /><br />
+<p>Recipe Name: <%= recipe.name %></p>
+<img src="<%= recipe.imageURL %>" class="recipe-image" />
+<p>Recipe Ingredients: <%= recipe.ingredients %></p>
+<p>Recipe Intructions: <%= recipe.instructions %></p>
+
+<br /><br />
+
+<a href="/cookbooks/<%= cookbookId %>/recipes/new"
+  >Add Another recipe to this book</a
+><span class="space"></span>
+
+<%- include('../partials/footer') %>

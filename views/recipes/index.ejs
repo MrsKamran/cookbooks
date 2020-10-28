@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<h1><%= title %></h1>
+<a href="/cookbooks/<%=cookbook._id%>/recipes/new">Add New Recipe</a
+><span class="space"></span>
+<a href="/cookbooks/<%= cookbook._id %>">Go Back to Your Book</a
+><span class="space"></span> <a href="/cookbooks">Go Back to All Books</a
+><span class="space"></span>
+<% recipes.forEach(function(r){ %>
+<p>Recipe Name: <%= r.name %></p>
+<p>Recipe Ingredients: <%= r.ingredients %></p>
+<p>Recipe Intructions: <%= r.instructions %></p>
+<p>
+  click <a href="/cookbooks/<%= cookbook._id%>/recipes/<%= r._id%>">Here</a> for
+  details
+</p>
+<% });%> <%- include('../partials/footer') %>

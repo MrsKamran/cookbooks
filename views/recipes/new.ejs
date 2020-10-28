@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title><%= title %></title>
+<script>
+  $("document").ready(function () {
+      $('input[type=file]').on("change", function () {
+          var $files = $(this).get(0).files;
+           if ($files.length) {
+              // Reject big files
+              if ($files[0].size > $(this).data("max-size") * 1024) {
+                  console.log("Please select a smaller file");
+                  return false;
+              }
+              var apiUrl = 'https://api.imgur.com/3/image';
+              var apiKey = '7c37e8d7e101a56';//This is my API-Key
+              var formData = new FormData();
+              formData.append("image", $files[0]);
+              var settings = {
+                  "async": true,
+                  "crossDomain": true,
+                  "url": apiUrl,
+                  "method": "POST",
+                  "datatype": "json",
+                  "headers": {
+                      "Authorization": "Client-ID " + apiKey
+                  },
+                  "processData": false,
+                  "contentType": false,
+                  "data": formData,
+                  beforeSend: function (xhr) {
+                      console.log("Uploading");
+                  },
+                  success: function (res) {
+                      console.log(res.data.link);
+                      $('#ShowImage').append('<img name="imageURL" src="' + res.data.link + '"+" width=250, height=auto" />');
+                      $('#imgURL').val(res.data.link);
+                      $('#imgURL').css("color","grey");
+                      $("#imgURL").change(function(){
+                      $(this).css("color","black");
+                    });
+                  },
+                  error: function () {
+                      alert("Failed to upload image");
+                  }
+              }
+              $.ajax(settings).done(function (response) {
+                  console.log("Done");
+              });
+          }
+      });
+  });
+</script>
+</head>
+<body>
+
+
+<h2>Add Recipe</h2>
+
+<form id="new-form" action="/cookbooks/<%= cookbookId %>/recipes" method="POST" autocomplete="off">
+  <label>Name:</label>
+  <input type="text" name="name"> <br><br>
+  <label>Ingredients:</label>
+  <input type="text" name="ingredients"><br><br>
+  <label>Instructions:</label>
+  <input type="text" name="instructions"><br><br>
+  <label>Cover Image:</label><br><br>
+  <!-- <form id="imgur"> -->
+    <input type="file" class="imgur" accept="image/*" data-max-size="5000" /><br><br>
+    <div id="ShowImage" width="250" height="auto"></div>
+  <!-- </form><br> -->
+  <label>Or add Cover Image URL here:</label><br><br>
+  <input id="imgURL" type="text" placeholder="https://imgur.com"
+  pattern="https://.*" name="imageURL"> <br><br>
+  
+  </label><br><br>
+  <input type="submit" value="Add Recipe">
+</form>
+
+<%- include('../partials/footer') %>
