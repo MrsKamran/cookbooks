@@ -1,36 +1,53 @@
 <%- include('../partials/header') %> <%- include('../partials/nav') %>
 <section class="section container is-max-desktop">
   <nav>
-    <a href="/cookbooks/<%= cookbookId %>">Go Back to Your Book</a
-    ><span class="space"></span>
-    <a href="/cookbooks/<%= cookbookId %>/recipes">Go Back to All Recipes</a
-    ><span class="space"></span>
+    <h1 style="float: left; font-size: 35px"><strong><%= title %></strong></h1>
+    <% if (user) { %>
+
+    <a
+      href="/cookbooks/<%= cookbookId %>/recipes/<%=recipe._id%>/delete"
+      style="float: right; padding-top: 20px"
+      class="tag is-white"
+      title="Delete This recipe"
+      ><i class="fas fa-trash-alt fa-2x"></i
+    ></a>
+    <a
+      href="/cookbooks/<%= cookbookId %>/recipes/<%=recipe._id%>/update"
+      style="float: right; padding-top: 20px"
+      onMouseOver="this.style.color='#5458D2 '"
+      onMouseOut="this.style.color='#008000'"
+      class="tag is-white"
+      title="Update This recipe"
+      ><i class="fas fa-edit fa-2x"></i
+    ></a>
+    <a
+      href="/cookbooks/<%=cookbookId%>/recipes/new"
+      style="float: right; padding-top: 20px"
+      onMouseOver="this.style.color='#5458D2 '"
+      onMouseOut="this.style.color='#008000'"
+      class="tag is-white"
+      title="Add Recipe"
+      ><i class="fas fa-plus-square fa-2x"></i
+    ></a>
+    <%}%>
+    <a
+      href="/cookbooks/<%= cookbookId %>"
+      style="float: right; font-size: 20px; padding: 10px"
+      >Back to Your Book</a
+    >
   </nav>
-  <br />
-  <% if (user) { %>
-  <a href="/cookbooks/<%= cookbookId %>/recipes/new"
-    >Add Another recipe to this book</a
-  ><span class="space"></span>
 
-  <a href="/cookbooks/<%= cookbookId %>/recipes/<%=recipe._id%>/delete"
-    >Delete This recipe</a
-  ><span class="space"></span>
-  <a href="/cookbooks/<%= cookbookId %>/recipes/<%=recipe._id%>/update"
-    >Update This recipe</a
-  ><span class="space"></span>
-  <%}%>
-
+  <br /><br /><br />
+  <h1 style="font-size: 25px"><strong><%= recipe.name %></strong></h1>
+  <h2 style="font-size: 17px"><i>from </i><%= recipe.recipeAuthor %></h2>
+  <p style="font-size: 17px">Cookbook: <%= cookbookTitle %></p>
   <br />
-  <h1><%= recipe.name %></h1>
-  <h2><%= recipe.recipeAuthor %></h2>
-  <br />
-  <p>Cookbook Name: <%= cookbookTitle %></p>
 
   <img src="<%= recipe.imageURL %>" class="recipe-image" />
   <br /><br />
 
   <% if (recipe.ingredients.length) { %>
-  <h2>Ingredients:</h2>
+  <h2 style="font-size: 25px">Ingredients:</h2>
   <br />
   <table class="center">
     <thead>
@@ -71,17 +88,36 @@
     method="POST"
     autocomplete="off"
   >
+    <label class="label">Ingredient: </label>
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        name="ingredient"
+        placeholder="Text input"
+      />
+    </div>
+
+    <label class="label">Quantity: </label>
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        name="quantity"
+        placeholder="Text input"
+      />
+    </div>
     <br />
-    <label>Ingredients: <input type="text" name="ingredient" /> </label><br />
-    <label>Quantity: <input type="text" name="quantity" /> </label><br />
-    <input type="submit" value="Add ingredient" />
+    <div class="control">
+      <button class="button is-link">Add Ingredient</button>
+    </div>
   </form>
   <% } %>
 
   <br /><br />
 
   <% if (recipe.instructions.length) { %>
-  <h2>instructions:</h2>
+  <h2 style="font-size: 25px">instructions:</h2>
   <ol>
     <% recipe.instructions.forEach(function(i) { %>
     <li>
@@ -107,8 +143,19 @@
     method="POST"
     autocomplete="off"
   >
-    <label>Instructions: <input type="text" name="instruction" /> </label><br />
-    <input type="submit" value="Add instruction" />
+    <!-- <label class="label">Instruction : </label> -->
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        name="instruction"
+        placeholder="Text input"
+      />
+    </div>
+    <br />
+    <div class="control">
+      <button class="button is-link">Add Instruction</button>
+    </div>
   </form>
 </section>
 <% } %> <%- include('../partials/footer') %>

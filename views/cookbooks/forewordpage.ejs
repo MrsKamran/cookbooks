@@ -1,28 +1,29 @@
 <%- include('../partials/header') %> <%- include('../partials/nav') %>
 <section class="section container is-max-desktop">
   <nav>
-    <a href="/cookbooks/<%= cookbook._id %>">Go Back to Your Book</a
-    ><span class="space"></span>
+    <h1 style="float: left; font-size: 40px"><strong><%= title %></strong></h1>
+    <% if (user) { %>
+    <a
+      href="/cookbooks/<%= cookbook._id %>/forewordpage/update"
+      style="float: right; padding-top: 20px"
+      onMouseOver="this.style.color='#5458D2 '"
+      onMouseOut="this.style.color='#008000'"
+      class="tag is-white"
+      title="Update foreword Page"
+      ><i class="fas fa-edit fa-2x"></i
+    ></a>
+    <%}%>
+    <a
+      href="/cookbooks/<%= cookbook._id %>"
+      style="float: right; font-size: 20px; padding: 10px"
+      >Back to Your Book</a
+    >
   </nav>
-  <br /><br />
 
-  <h1>Book Details</h1>
-  <br /><br />
-  <p>Cookbook Title: <%= cookbook.title %></p>
-  <p>Cookbook Subtitle: <%= cookbook.subtitle %></p>
-  <br /><br />
   <div class="foreword-page">
     <h1>Foreword</h1>
     <br /><br />
     <p><%= cookbook.foreword %></p>
   </div>
-  <br /><br />
-
-  <% if (user) { %>
-  <a href="/cookbooks/<%= cookbook._id %>/forewordpage/update"
-    >Update Foreword Page</a
-  ><span class="space"></span>
-
-  <% } %>
 </section>
 <%- include('../partials/footer') %>

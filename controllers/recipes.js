@@ -22,7 +22,8 @@ function createRecipe(req, res) {
   console.log("create");
   const recipe = new Recipe(req.body);
   recipe.cookbookId = req.params.id;
-  recipe.recipeAuthor = req.query.name;
+  // recipe.recipeAuthor = req.query.name;
+  console.log(req.user);
   recipe.save(function (err) {
     if (err) return res.render(`/cookbooks/${req.params.id}`);
     console.log(recipe);

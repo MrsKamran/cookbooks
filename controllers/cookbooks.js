@@ -146,6 +146,7 @@ function updateBook(req, res) {
     res.render("cookbooks/update", {
       title: "Update Book",
       cookbook,
+      user: req.user,
     });
   });
 }

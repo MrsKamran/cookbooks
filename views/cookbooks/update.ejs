@@ -1,9 +1,7 @@
-<%- include('../partials/header') %>
+<%- include('../partials/header') %> <%- include('../partials/nav') %>
 <section class="section container is-max-desktop">
-  <a href="/cookbooks">All Cook Books</a><span class="space"></span>
-
-  <br /><br />
-  <h1>Update Book Details</h1>
+  <h2 style="font-size: 30px"><strong>Update Book Details</strong></h2>
+  <br />
   <br /><br />
   <form
     id="new-form"
@@ -24,7 +22,11 @@
   <span class="space"></span>
   <a href="/cookbooks/<%= cookbook._id %>/forewordpage">Foreword Page</a
   ><span class="space"></span>
-  <a href="/cookbooks/<%= cookbook._id %>/recipes">Recipes</a
+  <a
+    href="/cookbooks/<%= cookbook._id %>/recipes"
+    onMouseOver="this.style.color='#F9500C'"
+    onMouseOut="this.style.color='#C70039'"
+    ><i class="fas fa-carrot fa-2x"></i>Recipes</a
   ><span class="space"></span>
 </section>
 <%- include('../partials/footer') %>

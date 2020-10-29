@@ -2,17 +2,18 @@
 <%- include('../partials/header') %>
 
 <section class="section container is-max-desktop">
-<h2>Update Recipe</h2>
+
+<h2 style="font-size: 30px;"><strong>Update Recipe</strong> </h2><br>
 
 <form id="new-form" action="/cookbooks/<%= cookbookId %>/recipes/<%=recipe._id%>/update" method="POST" autocomplete="off">
   <label>Name:</label>
   <input type="text" name="name"> <br><br>
-  <label>Cover Image:</label><br><br>
+  <label>Cover Image:</label>
   <!-- <form id="imgur"> -->
     <input type="file" class="imgur" accept="image/*" data-max-size="5000" /><br><br>
     <div id="ShowImage" width="250" height="200"></div>
   <!-- </form><br> -->
-  <label>Or add Cover Image URL here:</label><br><br>
+  <label>Or add Cover Image URL here:</label>
   <input id="imgURL" type="text" placeholder="https://imgur.com"
   pattern="https://.*" name="imageURL"> <br><br>
   

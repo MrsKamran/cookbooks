@@ -1,17 +1,24 @@
 <%- include('../partials/header') %> <%- include('../partials/nav') %>
 <section class="section container is-max-desktop">
-  <br />
-  <% if (user) { %>
-  <a href="/cookbooks/<%=cookbook._id%>/recipes/new">Add New Recipe</a
-  ><span class="space"></span>
-  <%}%>
-  <a href="/cookbooks/<%= cookbook._id %>">Go Back to Your Book</a
-  ><span class="space"></span> <a href="/cookbooks">Go Back to All Books</a>
-  <br />
-  <br />
-  <h1><strong><%= title %></strong></h1>
-
-  <br />
+  <nav>
+    <h1 style="float: left; font-size: 40px"><strong><%= title %></strong></h1>
+    <% if (user) { %>
+    <a
+      href="/cookbooks/<%=cookbook._id%>/recipes/new"
+      style="float: right; padding-top: 20px"
+      onMouseOver="this.style.color='#5458D2 '"
+      onMouseOut="this.style.color='#008000'"
+      class="tag is-white"
+      title="Add Recipe"
+      ><i class="fas fa-plus-square fa-2x"></i
+    ></a>
+    <%}%>
+    <a
+      href="/cookbooks/<%= cookbook._id %>"
+      style="float: right; font-size: 20px; padding: 10px"
+      >Back to Your Book</a
+    >
+  </nav>
 
   <div class="card-main-div">
     <% recipes.forEach(function(r){ %>
@@ -29,8 +36,6 @@
         </div>
       </article>
     </div>
-    <br />
-
     <% });%>
   </div>
 </section>
