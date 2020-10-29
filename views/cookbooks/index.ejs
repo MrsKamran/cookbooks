@@ -1,20 +1,61 @@
 
 
     <%- include('../partials/header') %>
+
     <%- include('../partials/nav') %>
+
+<br>
+
+    <section class="section container is-max-desktop">
+   <div>
+      <h1 style="float:left; font-size: 40px;"><strong><%= title %></strong> </h1>
+    <% if (user) { %>
+    <a href="/cookbooks/new" style="float:right"><strong>New Cookbook</strong></a>
+    <% } %>
+   </div>
+    <br>
+   <br>
+  
+    <div class="card-main-div">
+    <% cookbooks.forEach(function(c){ %>
+      <div class="card card-size">
+      <div class="card-image card-size-divs">
+        <figure class="image cover-image-card">
+          <img src="<%= c.coverImageURL %>" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content card-size-divs">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-4"><%= c.title %></p>
+            <p class="subtitle is-6"><%= c.subtitle %></p>
+          </div>
+        </div>
+    
+        <div class="content">
+          <%=c.foreword%> 
+          <p>click <a href="/cookbooks/<%= c._id %>">Here</a> for details</p>
+          <br>
+        </div>
+      </div>
+    </div>
+    
+    
     
 
-    <h1><%= title %></h1>
-    <% if (user) { %>
-    <a href="/cookbooks/new">New Cookbook</a>
-    <% } %> <% cookbooks.forEach(function(c){ %>
-    <p>Cookbook Title: <%= c.title %></p>
+
+   
+    <!-- <p>Cookbook Title: <%= c.title %></p>
     <p>Cookbook SubTitle: <%= c.subtitle %></p>
-    <p>click <a href="/cookbooks/<%= c._id %>">Here</a> for details</p>
+    <p>click <a href="/cookbooks/<%= c._id %>">Here</a> for details</p> -->
     <!-- <p>click <a id="pre" href="javascript:showPdf()">Here</a> for preview</p>   -->
     <!-- <a href="javascript:anchor_test()">AnchorTest</a>-->
     <% });%> 
     <!-- <script src="./javascripts/coverpage.js"></script> -->
     <!-- <script src="./javascripts/coverforewordrecipes.js"></script> -->
+
+    </div>
+        
+    </section>
   </body>
 </html>

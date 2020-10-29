@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<%- include('../partials/nav') %>
+<section class="section container is-max-desktop">
 <h2>Update Foreword Page</h2><br><br>
 <form id="add-foreword-page" method="POST"
   action="/cookbooks/<%=cookbook._id%>/forewordpage/update" autocomplete="off">
@@ -9,5 +9,5 @@
   </label><br><br>
   <input type="submit" value="Update Foreword Page in <%=cookbook.title%>">
 </form>
-
+</section>
 <%- include('../partials/footer') %>

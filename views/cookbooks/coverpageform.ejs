@@ -1,38 +1,34 @@
 <%- include('../partials/header') %>
-<%- include('../partials/nav') %>
+<section class="section container is-max-desktop">
+  <h2>Update Cover Page</h2>
+  <br /><br />
+  <form
+    id="add-foreword-page"
+    method="POST"
+    action="/cookbooks/<%=cookbook._id%>/coverpage/update"
+    autocomplete="off"
+  >
+    <label>Cover Image:</label><br /><br />
 
+    <input
+      type="file"
+      class="imgur"
+      accept="image/*"
+      data-max-size="5000"
+    /><br /><br />
+    <div id="ShowImage" width="250" height="auto"></div>
 
-    <h2>Update Cover Page</h2>
+    <label>Or add Cover Image URL here:</label><br /><br />
+    <input
+      id="imgURL"
+      type="text"
+      placeholder="https://imgur.com"
+      pattern="https://.*"
+      name="coverImageURL"
+    />
     <br /><br />
-    <form
-      id="add-foreword-page"
-      method="POST"
-      action="/cookbooks/<%=cookbook._id%>/coverpage/update"
-      autocomplete="off"
-    >
-      <label>Cover Image:</label><br /><br />
-
-      <input
-        type="file"
-        class="imgur"
-        accept="image/*"
-        data-max-size="5000"
-      /><br /><br />
-      <div id="ShowImage" width="250" height="auto"></div>
-
-      <label>Or add Cover Image URL here:</label><br /><br />
-      <input
-        id="imgURL"
-        type="text"
-        placeholder="https://imgur.com"
-        pattern="https://.*"
-        name="coverImageURL"
-      />
-      <br /><br />
-      <br /><br />
-      <input type="submit" value="Update Cover Page in <%=cookbook.title%>" />
-    </form>
-
-    <%- include('../partials/footer') %>
-  </body>
-</html>
+    <br /><br />
+    <input type="submit" value="Update Cover Page in <%=cookbook.title%>" />
+  </form>
+</section>
+<%- include('../partials/footer') %>

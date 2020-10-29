@@ -1,25 +1,25 @@
 
 
 <%- include('../partials/header') %>
-<%- include('../partials/nav') %>
-<h2>Start with New Book</h2>
+<section class="section container is-max-desktop">
+<h2 style="font-size: 30px;"><strong>Start with New Book</strong> </h2><br>
 <form id="new-form" action="/cookbooks" method="POST" autocomplete="off">
   <label>Title:</label>
   <input type="text" name="title"> <br><br>
   <label>Subtitle:</label>
   <input type="text" name="subtitle"><br><br>
-  <label>Cover Image:</label><br><br>
+  <label>Cover Image:</label>
  
     <input type="file" class="imgur" accept="image/*" data-max-size="5000" /><br><br>
     <div id="ShowImage" width="250" height="auto"></div>
 
-  <label>Or add Cover Image URL here:</label><br><br>
+  <label>Or add Cover Image URL here:</label>
   <input id="imgURL" type="text" placeholder="https://imgur.com"
   pattern="https://.*" name="coverImageURL"> <br><br>
-  <h2>Add Foreword Here</h2><br><br>
+  <h2>Add Foreword Here:</h2><br>
   <textarea name="foreword" class="description-box"></textarea>
   </label><br><br>
   <input type="submit" value="Add Book">
 </form>
-
+</section>
 <%- include('../partials/footer') %>

@@ -1,7 +1,7 @@
 
 <%- include('../partials/header') %>
-<%- include('../partials/nav') %>
 
+<section class="section container is-max-desktop">
 <h2>Update Recipe</h2>
 
 <form id="new-form" action="/cookbooks/<%= cookbookId %>/recipes/<%=recipe._id%>/update" method="POST" autocomplete="off">
@@ -19,5 +19,5 @@
   </label><br><br>
   <input type="submit" value="Update Recipe">
 </form>
-
+</section>
 <%- include('../partials/footer') %>

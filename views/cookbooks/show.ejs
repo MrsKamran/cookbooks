@@ -1,35 +1,52 @@
 <%- include('../partials/header') %> <%- include('../partials/nav') %>
-<nav>
-  <!-- <a href="/">Home</a> -->
+<section class="section container is-max-desktop">
+  <nav>
+    <a
+      href="/cookbooks/<%= cookbook._id %>/recipes"
+      style="float: left; font-size: 20px; padding: 10px"
+      onMouseOver="this.style.color='#F90C21'"
+      onMouseOut="this.style.color='#008000'"
+      ><i class="fas fa-pepper-hot fa-2x"></i>All Recipes</a
+    >
 
-  <a href="/cookbooks">All Cook Books</a><span class="space"></span>
-  <a href="/cookbooks/<%= cookbook._id %>/recipes">All Recipes</a
-  ><span class="space"></span> <br /><br />
+    <% if (user) { %>
+    <a
+      href="/cookbooks/<%= cookbook._id %>/delete"
+      style="float: right; padding-top: 15px"
+      class="tag is-white"
+      ><i class="fas fa-trash-alt fa-2x"></i></a
+    ><span class="space"></span>
+    <a
+      href="/cookbooks/<%= cookbook._id %>/update"
+      style="float: right; font-size: 20px; padding: 10px"
+      >Update Book</a
+    >
+  </nav>
+  <%}%>
+  <br /><br /><br />
 
-  <% if (user) { %>
-  <a href="/cookbooks/new">New Cook Book</a><span class="space"></span>
-  <a href="/cookbooks/<%= cookbook._id %>/update">Update Book</a
-  ><span class="space"></span>
-  <a href="/cookbooks/<%= cookbook._id %>/delete">Delete This Book</a
-  ><span class="space"></span>
-  <span class="space"></span>
-</nav>
-<%}%>
-<br /><br />
+  <div class="notification is-primary">
+    <h1 style="font-size: 20px; color: rgb(49, 46, 46)">
+      <Strong>Cook Book Details</Strong>
+    </h1>
+    <br /><br />
+    <p>Title: <Strong><%= cookbook.title %></Strong></p>
+    <p>Subtitle: <Strong><%= cookbook.subtitle %></Strong></p>
+    <br /><br />
 
-<h1>Book Details</h1>
-<br /><br />
-<p>Cookbook Title: <%= cookbook.title %></p>
-<p>Cookbook Subtitle: <%= cookbook.subtitle %></p>
-<br /><br />
-
-<a href="/cookbooks/<%= cookbook._id %>/coverpage">Cover Page</a>
-<span class="space"></span>
-<a href="/cookbooks/<%= cookbook._id %>/forewordpage">Foreword Page</a
-><span class="space"></span>
-<a href="/cookbooks/<%= cookbook._id %>/recipes/showAll">Recipes</a>
-<span class="space"></span> <a href="#">Book Preview</a
+    <a href="/cookbooks/<%= cookbook._id %>/coverpage">Cover Page</a>
+    <span class="space"></span>
+    <a href="/cookbooks/<%= cookbook._id %>/forewordpage">Foreword Page</a
+    ><span class="space"></span>
+    <a
+      href="/cookbooks/<%= cookbook._id %>/recipes/showAll"
+      onMouseOver="this.style.color='#F9500C'"
+      onMouseOut="this.style.color='#C70039'"
+      ><i class="fas fa-carrot fa-2x"></i>Recipes in this book</a
+    >
+    <!-- <span class="space"></span> <a href="#">Book Preview</a
 ><span class="space"></span> <a href="#">Print Book</a
-><span class="space"></span>
-
+><span class="space"></span> -->
+  </div>
+</section>
 <%- include('../partials/footer') %>

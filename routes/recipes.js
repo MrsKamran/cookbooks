@@ -31,7 +31,7 @@ router.get(
   recipeCtrl.newInstruction
 ); //display update recipe form
 router.get(
-  "/cookbooks/:id/recipes/:id2/instruction/id3",
+  "/cookbooks/:id/recipes/:id2/instructions/:id3",
   recipeCtrl.deleteInstruction
 ); //deletes one recipe
 

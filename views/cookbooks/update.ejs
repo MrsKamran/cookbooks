@@ -1,30 +1,30 @@
-<%- include('../partials/header') %> <%- include('../partials/nav') %>
+<%- include('../partials/header') %>
+<section class="section container is-max-desktop">
+  <a href="/cookbooks">All Cook Books</a><span class="space"></span>
 
-<a href="/cookbooks">All Cook Books</a><span class="space"></span>
-
-<br /><br />
-<h1>Update Book Details</h1>
-<br /><br />
-<form
-  id="new-form"
-  action="/cookbooks/<%= cookbook._id%>/update"
-  method="POST"
-  autocomplete="off"
->
-  <label>Title:</label>
-  <input type="text" name="title" /> <br /><br />
-  <label>Subtitle:</label>
-  <input type="text" name="subtitle" /><br /><br />
   <br /><br />
-  <input type="submit" value="Update Book" />
-</form>
+  <h1>Update Book Details</h1>
+  <br /><br />
+  <form
+    id="new-form"
+    action="/cookbooks/<%= cookbook._id%>/update"
+    method="POST"
+    autocomplete="off"
+  >
+    <label>Title:</label>
+    <input type="text" name="title" /> <br /><br />
+    <label>Subtitle:</label>
+    <input type="text" name="subtitle" /><br /><br />
+    <br /><br />
+    <input type="submit" value="Update Book" />
+  </form>
 
-<br /><br />
-<a href="/cookbooks/<%= cookbook._id %>/coverpage">Cover Page</a>
-<span class="space"></span>
-<a href="/cookbooks/<%= cookbook._id %>/forewordpage">Foreword Page</a
-><span class="space"></span>
-<a href="/cookbooks/<%= cookbook._id %>/recipes">Recipes</a
-><span class="space"></span>
-
+  <br /><br />
+  <a href="/cookbooks/<%= cookbook._id %>/coverpage">Cover Page</a>
+  <span class="space"></span>
+  <a href="/cookbooks/<%= cookbook._id %>/forewordpage">Foreword Page</a
+  ><span class="space"></span>
+  <a href="/cookbooks/<%= cookbook._id %>/recipes">Recipes</a
+  ><span class="space"></span>
+</section>
 <%- include('../partials/footer') %>

@@ -1,21 +1,38 @@
 <%- include('../partials/header') %> <%- include('../partials/nav') %>
+<section class="section container is-max-desktop">
+  <br />
+  <% if (user) { %>
+  <a href="/cookbooks/<%=cookbook._id%>/recipes/new">Add New Recipe</a
+  ><span class="space"></span>
+  <%}%>
+  <a href="/cookbooks/<%= cookbook._id %>">Go Back to Your Book</a
+  ><span class="space"></span> <a href="/cookbooks">Go Back to All Books</a>
+  <br />
+  <br />
+  <h1><strong><%= title %></strong></h1>
 
-<h1><%= title %></h1>
-<br />
-<% if (user) { %>
-<a href="/cookbooks/<%=cookbook._id%>/recipes/new">Add New Recipe</a
-><span class="space"></span>
-<%}%>
-<a href="/cookbooks/<%= cookbook._id %>">Go Back to Your Book</a
-><span class="space"></span> <a href="/cookbooks">Go Back to All Books</a>
-<br />
-<br />
-<br />
-<% recipes.forEach(function(r){ %>
-<p>Recipe Name: <%= r.name %></p>
-<p>
-  click <a href="/cookbooks/<%= cookbook._id%>/recipes/<%= r._id%>">Here</a> for
-  details
-</p>
-<br />
-<% });%> <%- include('../partials/footer') %>
+  <br />
+
+  <div class="card-main-div">
+    <% recipes.forEach(function(r){ %>
+    <div class="card-size">
+      <article class="message is-info">
+        <div class="message-body">
+          <p><strong>Recipe Name: <%= r.name %></strong></p>
+          <p>
+            click
+            <a href="/cookbooks/<%= cookbook._id%>/recipes/<%= r._id%>"
+              ><em> Here </em></a
+            >
+            for details
+          </p>
+        </div>
+      </article>
+    </div>
+    <br />
+
+    <% });%>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

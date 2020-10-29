@@ -12,19 +12,11 @@ const cookbookSchema = new Schema(
       type: String,
       // required: true,
     },
-    authors: {
-      type: String,
-      // required: true,
-    },
     coverImageURL: {
       type: mongoose.SchemaTypes.Url,
       // required: true,
     },
     foreword: {
-      type: String,
-      // required: true,
-    },
-    forewordAuthor: {
       type: String,
       // required: true,
     },
