@@ -16,7 +16,7 @@
     <a
       href="/cookbooks/<%= cookbook._id %>"
       style="float: right; font-size: 20px; padding: 10px"
-      >Back to Your Book</a
+      >Back to Book</a
     >
   </nav>
 
@@ -25,7 +25,12 @@
     <div class="card-size">
       <article class="message is-info">
         <div class="message-body">
-          <p><strong>Recipe Name: <%= r.name %></strong></p>
+          <div class="card-image card-size-divs">
+            <figure class="image">
+              <img src="<%= r.imageURL %>" alt="Placeholder image" />
+            </figure>
+          </div>
+          <p><strong><%= r.name %></strong></p>
           <p>
             click
             <a href="/cookbooks/<%= cookbook._id%>/recipes/<%= r._id%>"

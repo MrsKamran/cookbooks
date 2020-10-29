@@ -49,33 +49,36 @@
   <% if (recipe.ingredients.length) { %>
   <h2 style="font-size: 25px">Ingredients:</h2>
   <br />
-  <table class="center">
-    <thead>
-      <tr>
-        <% if (user) { %>
-        <th>Delete</th>
-        <%}%>
-        <th>Name</th>
-        <th>Quantity</th>
-      </tr>
-    </thead>
-    <br />
-    <tbody>
-      <% recipe.ingredients.forEach(function(i) { %>
-      <tr>
-        <td>
-          <a
-            href="/cookbooks/<%= cookbookId %>/recipes/<%=recipe._id%>/ingredients/<%=i._id%>?_method=DELETE"
-            ><i class="fas fa-times"></i
-          ></a>
-        </td>
-        <td><%= i.ingredient %></td>
-        <td><%= i.quantity %></td>
-        <% if (user) { %> <%}%>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="table center">
+      <thead>
+        <tr>
+          <% if (user) { %>
+          <th>Delete</th>
+          <%}%>
+          <th>Name</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <br />
+      <tbody>
+        <% recipe.ingredients.forEach(function(i) { %>
+        <tr>
+          <% if (user) {%>
+          <td>
+            <a
+              href="/cookbooks/<%= cookbookId %>/recipes/<%=recipe._id%>/ingredients/<%=i._id%>?_method=DELETE"
+              ><i class="fas fa-times"></i
+            ></a>
+          </td>
+          <%}%>
+          <td><%= i.ingredient %></td>
+          <td><%= i.quantity %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
   <% } else { %>
   <h5>No Ingredients Added Yet</h5>
   <% } %>
@@ -88,28 +91,30 @@
     method="POST"
     autocomplete="off"
   >
-    <label class="label">Ingredient: </label>
-    <div class="control">
-      <input
-        class="input"
-        type="text"
-        name="ingredient"
-        placeholder="Text input"
-      />
-    </div>
+    <div class="field is-grouped"></div>
+      <label class="label">Ingredient: </label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          name="ingredient"
+          placeholder="Text input"
+        />
+      </div>
 
-    <label class="label">Quantity: </label>
-    <div class="control">
-      <input
-        class="input"
-        type="text"
-        name="quantity"
-        placeholder="Text input"
-      />
-    </div>
-    <br />
-    <div class="control">
-      <button class="button is-link">Add Ingredient</button>
+      <label class="label">Quantity: </label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          name="quantity"
+          placeholder="Text input"
+        />
+      </div>
+      <br />
+      <div class="control">
+        <button class="button is-link">Add Ingredient</button>
+      </div>
     </div>
   </form>
   <% } %>
@@ -117,19 +122,37 @@
   <br /><br />
 
   <% if (recipe.instructions.length) { %>
-  <h2 style="font-size: 25px">instructions:</h2>
-  <ol>
-    <% recipe.instructions.forEach(function(i) { %>
-    <li>
-      <%= i.instruction %> <% if (user) { %>
-      <a
-        href="/cookbooks/<%= cookbookId %>/recipes/<%= recipe._id %>/instructions/<%= i._id%>?_method=DELETE"
-        ><i class="fas fa-times"></i
-      ></a>
-      <% } %>
-    </li>
-    <% }); %>
-  </ol>
+  <h2 style="font-size: 25px">Instructions:</h2>
+  <br />
+  <div class="table-container">
+    <table class="table center">
+      <thead>
+        <tr>
+          <% if (user) { %>
+          <th></th>
+          <%}%>
+          <th></th>
+        </tr>
+      </thead>
+      <br />
+      <tbody>
+        <% recipe.instructions.forEach(function(i) { %>
+        <tr>
+          <% if (user) {%>
+          <td>
+            <a
+              href="/cookbooks/<%= cookbookId %>/recipes/<%=recipe._id%>/instructions/<%=i._id%>?_method=DELETE"
+              ><i class="fas fa-times"></i
+            ></a>
+          </td>
+          <%}%>
+          <td><%= i.instruction %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+
   <%} else { %>
   <h5>No Instructions Added Yet</h5>
   <% } %>

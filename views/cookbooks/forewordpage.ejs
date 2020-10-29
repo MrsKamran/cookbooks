@@ -21,9 +21,22 @@
   </nav>
 
   <div class="foreword-page">
-    <h1>Foreword</h1>
     <br /><br />
-    <p><%= cookbook.foreword %></p>
+    <!-- <h1 style="text-align: left; font-size: 20px">
+      <strong>Foreword</strong>
+    </h1> -->
+    <br /><br />
+    <div
+      style="
+        position: relative;
+        text-align: justify;
+        text-justify: inter-word;
+        font-size: 20px;
+        padding: 40px;
+      "
+    >
+      <p><%= cookbook.foreword %></p>
+    </div>
   </div>
 </section>
 <%- include('../partials/footer') %>
