@@ -16,6 +16,7 @@ The idea of this project stemmed from my hobby of cooking exotic recipes. I try 
 <br/>
 <img align="center" src="public/images/new.png" width="700" height="400"/>
 <br/>
+
 ## Technologies Used:
 
 Nodejs, Express, Google oauth, Bulma, HTML , CSS, JavaScript, Flexbox, JSON API, pdfmake, imgurAPI, fontawesome icons
