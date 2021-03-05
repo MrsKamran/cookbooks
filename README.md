@@ -7,10 +7,10 @@ The idea of this project stemmed from my hobby of cooking exotic recipes. I try 
 
 ## Screenshots:
 
-<img align="center" src="home.png" width="700" height="400"/>
-<img align="center" src="book.png" width="700" height="400"/>
-<img align="center" src="recipe.png" width="700" height="400"/>
-<img align="center" src="new.png" width="700" height="400"/>
+<img align="center" src="public/images/home.png" width="700" height="400"/>
+<img align="center" src="public/images/book.png" width="700" height="400"/>
+<img align="center" src="public/images/recipe.png" width="700" height="400"/>
+<img align="center" src="public/images/new.png" width="700" height="400"/>
 
 ## Technologies Used:
 
