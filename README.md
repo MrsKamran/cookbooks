@@ -24,7 +24,7 @@ Nodejs, Express, Google oauth, Bulma, HTML , CSS, JavaScript, Flexbox, JSON API,
 
 ### Link: https://cookbook-express-app.herokuapp.com/cookbooks
 
-### Instructions:
+## Login Options:
 
 This app offers 2 options:
 
